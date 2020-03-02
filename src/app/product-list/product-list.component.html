@@ -1,0 +1,35 @@
+<h2>Products</h2>
+
+<!-- *ngFor is a "structural directive". Structural directives shape or reshape the DOM's structure, typically by adding, removing, and manipulating the elements to which they are attached. Directives with an asterisk, *, are structural directives. -->
+
+<div *ngFor="let product of products">
+  <h3>
+
+    <!-- In the preview pane, hold the pointer over a product name to see the bound name property value, which is the product name plus the word "details". Interpolation {{ }} lets you render the property value as text; property binding [ ] lets you use the property value in a template expression. -->
+
+    <!-- To display the names of the products, use the interpolation syntax {{ }}. Interpolation renders a property's value as text. Inside the <div>, add an <h3> to display the interpolation of the product's name property: -->
+
+    <a [title]="product.name + ' details'">
+      {{ product.name }}
+    </a>
+  </h3>
+
+  <!-- On the <p> element, use an *ngIf directive so that Angular only creates the <p> element if the current product has a description -->
+
+  <p *ngIf="product.description">
+    Description: {{ product.description }}
+  </p>
+
+  <!-- Bind the button's click event to the share() method (in product-list.component.ts). Event binding uses a set of parentheses, ( ), around the event, as in the following <button> element: -->
+
+    <button (click)="share()">
+      Share
+    </button>
+    
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
